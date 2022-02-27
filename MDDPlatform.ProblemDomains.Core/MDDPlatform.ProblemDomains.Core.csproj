@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\MDDPlatform.SharedKernel\MDDPlatform.SharedKernel.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- <ItemGroup>
+    <PackageReference Include="MDDPlatform.SharedKernel" Version="2.0.0" />
+  </ItemGroup> -->
+  
+
+</Project>

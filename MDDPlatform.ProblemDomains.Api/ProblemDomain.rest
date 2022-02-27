@@ -1,0 +1,12 @@
+@apiUrl=http://localhost:5292
+
+### Get Problem Domain
+GET {{apiUrl}}/ProblemDomain
+
+### Create Problem Domain
+POST {{apiUrl}}/ProblemDomain/Create
+Content-Type: application/json
+{
+    "title": "SnappFood",
+    "description" : "Online Food Delivery"
+}
