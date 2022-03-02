@@ -1,5 +1,6 @@
 using MDDPlatform.ProblemDomains.Entities;
 using MDDPlatform.ProblemDomains.ValueObjects;
+using MDDPlatform.SharedKernel.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
@@ -32,7 +33,10 @@ namespace MDDPlatform.ProblemDomains.Infrastructure.Data.Configurations{
 
         public void Configure(EntityTypeBuilder<SubDomain> builder)
         {
-            builder.Property<Guid>("Id");
+            builder.HasKey(p=>p.TraceId).HasName("Id");
+            builder.Property(p=>p.TraceId)
+                    .HasConversion(traceId=> traceId.Value,id=>TraceId.Load(id))
+                    .HasColumnName("Id");
             builder
                 .Property(p=>p.Name)
                 .HasConversion(n=>n.Value,val=> new Name(val));

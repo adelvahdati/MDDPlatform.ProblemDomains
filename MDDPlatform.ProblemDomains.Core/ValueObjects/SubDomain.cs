@@ -3,9 +3,8 @@ using MDDPlatform.SharedKernel.ValueObjects;
 
 namespace MDDPlatform.ProblemDomains.ValueObjects
 {
-    public class SubDomain : ValueObject
+    public class SubDomain : TraceableValueObject
     {
-        //public Guid Id {get;}
         public Name Name { get; }
         public ProblemDomain ProblemDomain { get; }
 
@@ -13,13 +12,11 @@ namespace MDDPlatform.ProblemDomains.ValueObjects
         {
             Name = name;
             ProblemDomain = problemDomain;
-            //Id = Guid.NewGuid();
         }
         public SubDomain(Guid id, Name name, ProblemDomain problemDomain)
         {
             Name = name;
             ProblemDomain = problemDomain;
-            //Id = id;
         }
         private SubDomain(){
             

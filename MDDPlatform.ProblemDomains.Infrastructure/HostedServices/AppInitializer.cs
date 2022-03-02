@@ -10,7 +10,7 @@ namespace MDDPlatform.ProblemDomains.Infrastructure.HostedServices
         private readonly IServiceProvider _serviceProvider;
         private readonly bool _migrateDatabase;
 
-        public AppInitializer(IServiceProvider serviceProvider, bool migrateDatabase = false)
+        public AppInitializer(IServiceProvider serviceProvider, bool migrateDatabase = true)
         {
             _serviceProvider = serviceProvider;
             _migrateDatabase = migrateDatabase;

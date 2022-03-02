@@ -32,7 +32,7 @@ namespace MDDPlatform.ProblemDomains.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SubDomains", x => x.Id);
+                    table.PrimaryKey("Id", x => x.Id);
                     table.ForeignKey(
                         name: "FK_SubDomains_ProblemDomains_ProblemDomainId",
                         column: x => x.ProblemDomainId,

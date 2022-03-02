@@ -45,9 +45,9 @@ namespace MDDPlatform.ProblemDomains.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("MDDPlatform.ProblemDomains.ValueObjects.SubDomain", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<Guid>("TraceId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -56,7 +56,8 @@ namespace MDDPlatform.ProblemDomains.Infrastructure.Data.Migrations
                     b.Property<Guid>("ProblemDomainId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+                    b.HasKey("TraceId")
+                        .HasName("Id");
 
                     b.HasIndex("ProblemDomainId");
 

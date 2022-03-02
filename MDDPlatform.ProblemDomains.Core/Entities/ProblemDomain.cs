@@ -31,9 +31,9 @@ namespace MDDPlatform.ProblemDomains.Entities
             if(!result)
                 return TheAction.Failed($"A subdomain with the name of {name.Value} is exist");
                                                        
-            //AddEvent(new ProblemDomainDecomposed(this.Id,domain.Id,name));
+            
             _subDomains.Add(domain);
-            AddEvent(new ProblemDomainDecomposed(this.Id,name));          
+            AddEvent(new ProblemDomainDecomposed(this.Id,domain.TraceId.Value,name));          
             return TheAction.IsDone($"Problem domain decompsed into subdomais : {name.Value}");
         }
         

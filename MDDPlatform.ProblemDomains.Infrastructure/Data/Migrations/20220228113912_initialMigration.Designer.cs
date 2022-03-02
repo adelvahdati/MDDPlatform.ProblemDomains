@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MDDPlatform.ProblemDomains.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220217004930_initialMigration")]
+    [Migration("20220228113912_initialMigration")]
     partial class initialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,9 +47,9 @@ namespace MDDPlatform.ProblemDomains.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("MDDPlatform.ProblemDomains.ValueObjects.SubDomain", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<Guid>("TraceId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -58,7 +58,8 @@ namespace MDDPlatform.ProblemDomains.Infrastructure.Data.Migrations
                     b.Property<Guid>("ProblemDomainId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+                    b.HasKey("TraceId")
+                        .HasName("Id");
 
                     b.HasIndex("ProblemDomainId");
 
