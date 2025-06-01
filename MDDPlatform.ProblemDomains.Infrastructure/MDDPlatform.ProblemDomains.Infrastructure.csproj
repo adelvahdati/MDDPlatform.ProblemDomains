@@ -17,6 +17,8 @@
   <ItemGroup>
     <ProjectReference Include="..\MDDPlatform.ProblemDomains.Application\MDDPlatform.ProblemDomains.Application.csproj" />
     <ProjectReference Include="..\..\MDDPlatform.Messages\MDDPlatform.Messages.Broker\MDDPlatform.Messages.Broker.csproj" />
+    <ProjectReference Include="..\..\MDDPlatform.DataStorage\MDDPlatform.DataStorage.MongoDB\MDDPlatform.DataStorage.MongoDB.csproj" />
+    <ProjectReference Include="..\..\MDDPlatform.Messages\MDDPlatform.Messages.Extensions\MDDPlatform.Messages.Extensions.csproj" />
   </ItemGroup>
 
 </Project>

@@ -27,13 +27,14 @@ namespace MDDPlatform.ProblemDomains.Services.Commands.Handlers
         public async Task HandleAsync(DecomposeProblemDomain command)
         {
             var problemDomain = await _problemDomainRepository.GetProblemDomain(command.ProblemDomainId);
+            if(Equals(problemDomain,null))
+                throw new Exception("Problem Domain Not Found");
 
             Name name = new Name(command.SubDomain);
             var action =  problemDomain.CreateDomain(name);
-            if(action.Status == ActionStatus.Failure){
-                Console.WriteLine(action.Message);
-                return;
-            }
+            if(action.Status == ActionStatus.Failure)
+                throw new Exception($"Problem Domain Decomposition Failed : {action.Message}");
+
             await _problemDomainRepository.Update(problemDomain);
             var events = _eventMapper.Map(problemDomain.DomainEvents);
             await _messageBroker.PublishAsync(events);            

@@ -26,8 +26,7 @@ namespace MDDPlatform.ProblemDomains.Application.DTO
             
             foreach(var item in problemDomain.SubDomains)
             {
-                //var subDomain = new SubDomainDto(item.Id,item.Name.Value,item.ProblemDomain.Id);
-                var subDomain = new SubDomainDto(item.Name.Value,item.ProblemDomain.Id);
+                var subDomain = new SubDomainDto(item.TraceId.Value,item.Name.Value);
                 subDomains.Add(subDomain);
             }
             return new ProblemDomainDto(problemDomainId,title,description,subDomains);

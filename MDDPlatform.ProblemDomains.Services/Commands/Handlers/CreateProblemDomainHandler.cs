@@ -20,9 +20,7 @@ namespace MDDPlatform.ProblemDomains.Services.Commands.Handlers
 
         public async Task HandleAsync(CreateProblemDomain command)
         {
-            Title title = new Title(command.Title);
-            Description description = new Description(command.Description);
-            var problemDomain = new ProblemDomain(title,description);
+            var problemDomain = ProblemDomain.Create(command.Title,command.Description);
             await _problemDomainRepository.Create(problemDomain);
         }
     }

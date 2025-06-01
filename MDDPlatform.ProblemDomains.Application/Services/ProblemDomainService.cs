@@ -26,6 +26,18 @@ namespace MDDPlatform.ProblemDomains.Application.Services
             await _messageDispatcher.HandleAsync(command);
         }
 
+        public async Task DeleteProblemdDomain(Guid id)
+        {
+            var command = new DeleteProblemDomain(id);
+            await _messageDispatcher.HandleAsync(command);
+        }
+
+        public async Task DeleteSubDomain(Guid problemDomainId, Guid subDomainId)
+        {
+            var command = new DeleteSubDomain(problemDomainId,subDomainId);
+            await _messageDispatcher.HandleAsync(command);
+        }
+
         public async Task<ProblemDomainDto> GetProblemDomain(Guid ProblemDomainId)
         {
             var query = new GetProblemDomainById(ProblemDomainId);
@@ -38,11 +50,11 @@ namespace MDDPlatform.ProblemDomains.Application.Services
             return await _messageDispatcher.HandleAsync<IList<ProblemDomainDto>>(query);
         }
 
-        public async Task<SubDomainDto> GetSubDomain(Guid subDomainId)
-        {
-            var query = new GetSubDomainById(subDomainId);
-            return await _messageDispatcher.HandleAsync<SubDomainDto>(query);
-        }
+        // public async Task<SubDomainDto> GetSubDomain(Guid subDomainId)
+        // {
+        //     var query = new GetSubDomainById(subDomainId);
+        //     return await _messageDispatcher.HandleAsync<SubDomainDto>(query);
+        // }
 
         public async Task<SubDomainDto> GetSubDomain(Guid problemDomainId, string subdomain)
         {
